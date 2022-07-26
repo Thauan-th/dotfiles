@@ -1,4 +1,3 @@
-
 runtime! debian.vim
 
 set nocompatible
@@ -18,7 +17,9 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 call vundle#end()
 
 filetype plugin indent on
+
 colorscheme monokai_pro
+
 syntax on
 
 set termguicolors
@@ -79,9 +80,9 @@ let g:airline_skip_empty_sections = 1
 if !exists('g:airline_powerline_fonts')
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_left_sep          = ''
+let g:airline_left_sep          = '|'
 let g:airline_left_alt_sep      = '»'
-let g:airline_right_sep         = ''
+let g:airline_right_sep         = '|'
 let g:airline_right_alt_sep     = '«'
 let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
 let g:airline#extensions#readonly#symbol   = '⊘'
@@ -93,11 +94,25 @@ nnoremap <S-j> :m .+1<CR>==
 nnoremap <S-k> :m .-2<CR>==
 vnoremap <S-j> :m '>+1<CR>gv=gv
 vnoremap <S-k> :m '<-2<CR>gv=gv
+
 nnoremap zz :update<cr>
+nnoremap <C-[> :update<cr>
+nnoremap <S-[> :update<cr>
+
+cnoreabbrev W w
+cnoreabbrev WQ wq
+cnoreabbrev Q q
+cnoreabbrev Q! q!
+cnoreabbrev q1 q!
+cnoreabbrev Q1 q!
+nnoremap ; :
+vnoremap ; :
+
 map cc <Plug>NERDCommenterInvert
 map <C-a> ggVG
 map <C-x> :wq<CR>
 map <C-n> :NERDTreeToggle<CR>
+
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -109,3 +124,4 @@ let g:NERDDefaultAlign = 'left'
 
 let g:ale_linters={'python':['flake8','pylint'],'javascript':['eslint']}
 let g:ale_completion_enabled = 0
+
