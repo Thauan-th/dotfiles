@@ -96,7 +96,6 @@ vnoremap <S-j> :m '>+1<CR>gv=gv
 vnoremap <S-k> :m '<-2<CR>gv=gv
 
 nnoremap zz :update<cr>
-nnoremap <C-[> :update<cr>
 nnoremap <S-[> :update<cr>
 
 cnoreabbrev W w
