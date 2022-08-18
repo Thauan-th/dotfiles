@@ -14,6 +14,8 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdcommenter'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'KabbAmine/vCoolor.vim'
+Plugin 'ap/vim-css-color
 call vundle#end()
 
 filetype plugin indent on
