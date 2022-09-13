@@ -1,5 +1,3 @@
-runtime! debian.vim
-
 set nocompatible
 filetype off 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -15,15 +13,15 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdcommenter'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'KabbAmine/vCoolor.vim'
-Plugin 'ap/vim-css-color
+Plugin 'ap/vim-css-color'
 call vundle#end()
 
 filetype plugin indent on
+set shiftwidth=2
 
 colorscheme monokai_pro
 
 syntax on
-
 set termguicolors
 set noswapfile
 set ignorecase		" Do case insensitive matching
@@ -97,7 +95,7 @@ nnoremap <S-k> :m .-2<CR>==
 vnoremap <S-j> :m '>+1<CR>gv=gv
 vnoremap <S-k> :m '<-2<CR>gv=gv
 
-nnoremap zz :update<cr>
+nnoremap zz :w<cr>>
 nnoremap <S-[> :update<cr>
 
 cnoreabbrev W w
