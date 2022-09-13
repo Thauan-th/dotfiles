@@ -14,12 +14,13 @@ Plugin 'preservim/nerdcommenter'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'ap/vim-css-color'
+Plugin 'whatyouhide/vim-gotham'
 call vundle#end()
 
 filetype plugin indent on
 set shiftwidth=2
 
-colorscheme monokai_pro
+colorscheme gotham
 
 syntax on
 set termguicolors
