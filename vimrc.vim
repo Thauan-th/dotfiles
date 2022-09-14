@@ -5,7 +5,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'phanviet/vim-monokai-pro'
+" Plugin 'phanviet/vim-monokai-pro'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/neocomplete'
 Plugin 'ryanoasis/vim-devicons'
@@ -15,6 +15,7 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'whatyouhide/vim-gotham'
+Plugin 'kyoz/purify', { 'rtp': 'vim' }
 call vundle#end()
 
 filetype plugin indent on
