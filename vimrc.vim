@@ -5,25 +5,27 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'phanviet/vim-monokai-pro'
+Plugin 'phanviet/vim-monokai-pro'
+Plugin 'ap/vim-css-color'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Shougo/neocomplete'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdcommenter'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'KabbAmine/vCoolor.vim'
-Plugin 'ap/vim-css-color'
-Plugin 'whatyouhide/vim-gotham'
 Plugin 'kyoz/purify', { 'rtp': 'vim' }
+Plugin 'alvan/vim-closetag'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'dense-analysis/ale'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 call vundle#end()
 
 filetype plugin indent on
-set shiftwidth=2
+set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
 
-colorscheme gotham
-
+colorscheme purify
+set background=dark
 syntax on
+set term=xterm-256color
 set termguicolors
 set noswapfile
 set ignorecase		" Do case insensitive matching
@@ -31,33 +33,6 @@ set smartcase		" Do smart case matching
 set mouse=a		
 set nu
 
-function! GenerateHTMLStructure()
-call append(0,'<!DOCTYPE html>')
-call append(1,'<html lang="en">')
-call append(2,'<head>')
-call append(	3,'<meta charset="UTF-8">')
-call append(    4,'<meta http-equiv="X-UA-Compatible" content="IE=edge">')
-call append(    5,'<meta name="viewport" content="width=device-width, initial-scale=1.0">')
-call append(    6,'<title>Document</title>')
-call append(7,'</head>')
-call append(8,'<body>')
-call append(9,'')
-call append(10,'</body>')
-call append(11,'</html>')
-endfunction
-
-function! GenerateFunctionalComponent()
-call append(0,'import React from "react"')
-call append(1,'import "./File.css"')
-call append(2,'')
-call append(3,'function myComponent(){')
-call append(4,'   return (<></>)')
-call append(5,'}')
-call append(6,'')
-call append(7,'export default myComponent()')
-endfunction
-command GenerateFC call GenerateFunctionalComponent()
-command GenerateHTML call GenerateHTMLStructure()
 
 if filereadable("/etc/vim/vimrc.local")
 source /etc/vim/vimrc.local
@@ -114,6 +89,9 @@ map <C-a> ggVG
 map <C-x> :wq<CR>
 map <C-n> :NERDTreeToggle<CR>
 
+inoremap jj <Esc>
+vnoremap jj <Esc>
+
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -126,3 +104,45 @@ let g:NERDDefaultAlign = 'left'
 let g:ale_linters={'python':['flake8','pylint'],'javascript':['eslint']}
 let g:ale_completion_enabled = 0
 
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,js'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+"
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+"
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+"
+let g:closetag_close_shortcut = '<leader>>'
