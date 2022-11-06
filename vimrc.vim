@@ -73,7 +73,9 @@ vnoremap <S-j> :m '>+1<CR>gv=gv
 vnoremap <S-k> :m '<-2<CR>gv=gv
 
 nnoremap zz :w<cr>>
-nnoremap <S-[> :update<cr>
+
+nnoremap <S-[> <ESC>
+nnoremap <S-[> <ESC>
 
 cnoreabbrev W w
 cnoreabbrev WQ wq
